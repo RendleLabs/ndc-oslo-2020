@@ -1,0 +1,36 @@
+﻿@model HomeViewModel;
+@{
+    ViewData["Title"] = "Pizza!";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Build your pizza</h1>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <form asp-controller="Orders" asp-action="Order">
+            <table>
+                <thead>
+                <th>Topping</th>
+                </thead>
+                <tbody>
+                @for (int i = 0; i < Model.Toppings.Count; i++)
+                {
+                    <tr>
+                        <td>
+                            <input class="form-check-input" type="checkbox"
+                                   asp-for="Toppings[i].Selected"/>
+                            <label class="form-check-label" asp-for="Toppings[i].Selected">
+                                @Model.Toppings[i].Name
+                            </label>
+                            <input type="hidden" asp-for="Toppings[i].Id"/>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+            <button class="btn btn-success" type="submit">Place order</button>
+        </form>
+    </div>
+</div>

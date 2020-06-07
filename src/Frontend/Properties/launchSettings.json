@@ -1,0 +1,15 @@
+﻿{
+  "profiles": {
+    "Frontend": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "applicationUrl": "https://localhost:5001;http://localhost:5000",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development",
+        "Service__Toppings__https__Host": "localhost",
+        "Service__Toppings__https__Port": "5002",
+        "Service__Toppings__https__Protocol": "https"
+      }
+    }
+  }
+}
