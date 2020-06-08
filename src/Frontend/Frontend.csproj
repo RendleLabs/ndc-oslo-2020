@@ -12,4 +12,12 @@
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
   </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="Protos\toppings.proto" GrpcServices="Client"/>
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.12.3" />
+    <PackageReference Include="Grpc.AspNetCore.Server.ClientFactory" Version="2.29.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.29.0" PrivateAssets="All" />
+  </ItemGroup>
 </Project>

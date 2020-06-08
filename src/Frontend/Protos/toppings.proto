@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option csharp_namespace = "Frontend";
+
+package toppings;
+
+service Toppings {
+  rpc GetAvailable (AvailableRequest) returns (AvailableResponse);
+  
+}
+
+message AvailableRequest {
+  
+}
+
+message AvailableResponse {
+  repeated AvailableTopping toppings = 1;
+}
+
+message AvailableTopping {
+  Topping topping = 1;
+  int32 quantity = 2;
+}
+
+message Topping {
+  string id = 1;
+  string name = 2;
+  float price = 3;
+}

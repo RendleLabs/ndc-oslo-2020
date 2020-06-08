@@ -24,6 +24,10 @@ namespace Frontend
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddGrpcClient<Toppings.ToppingsClient>(options =>
+            {
+                options.Address = new Uri("https://localhost:5003");
+            });
             services.AddControllersWithViews();
         }
 
