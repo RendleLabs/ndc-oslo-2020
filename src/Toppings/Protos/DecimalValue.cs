@@ -4,12 +4,16 @@ namespace CustomTypes
     {
         private const int NanoFactor = 1_000_000_000;
 
-        public static implicit operator DecimalValue(decimal value) =>
-            new DecimalValue
+        public static implicit operator DecimalValue(decimal value)
+        {
+            var units = decimal.Truncate(value);
+            var nanos = (value - units) * NanoFactor;
+            return new DecimalValue
             {
-                Units = (long)decimal.Truncate(value),
-                Nanos = (int)(decimal.Remainder(1m, value) * NanoFactor)
+                Units = (long) units,
+                Nanos = (int) nanos
             };
+        }
 
         public static implicit operator decimal(DecimalValue value) =>
             value.Units + (decimal) value.Nanos / NanoFactor;

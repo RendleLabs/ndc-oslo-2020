@@ -15,4 +15,7 @@ services:
   project: src/Toppings/Toppings.csproj
   bindings:
   - protocol: https
-#    port: 5003
+- name: orders
+  project: src/Orders/Orders.csproj
+  bindings:
+  - protocol: https

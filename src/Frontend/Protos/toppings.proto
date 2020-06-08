@@ -2,7 +2,7 @@ syntax = "proto3";
 
 import "decimal.proto";
 
-option csharp_namespace = "Toppings";
+option csharp_namespace = "Frontend";
 
 package toppings;
 

@@ -30,6 +30,13 @@ namespace Frontend
                 var uri = config.GetServiceUri("Toppings");
                 options.Address = uri;
             });
+            services.AddGrpcClient<Orders.OrdersClient>((provider, options) =>
+            {
+                var config = provider.GetService<IConfiguration>();
+                var uri = config.GetServiceUri("Orders");
+                options.Address = uri;
+
+            });
             services.AddControllersWithViews();
         }
 
