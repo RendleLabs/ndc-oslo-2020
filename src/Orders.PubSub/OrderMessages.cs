@@ -4,11 +4,6 @@ using System.Threading.Tasks;
 
 namespace Orders.PubSub
 {
-    public interface IOrderMessages
-    {
-        ValueTask<OrderMessage> ReadAsync(CancellationToken token);
-    }
-
     public class OrderMessages : IOrderMessages
     {
         private static readonly UnboundedChannelOptions ChannelOptions = new UnboundedChannelOptions
