@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+option csharp_namespace = "Orders";
+
+package toppings;
+
+service Toppings {
+  rpc DecrementStock (DecrementStockRequest) returns (DecrementStockResponse);
+}
+
+message DecrementStockRequest {
+  repeated string topping_ids = 1;
+}
+
+message DecrementStockResponse {
+  
+}

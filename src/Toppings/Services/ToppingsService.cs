@@ -36,5 +36,22 @@ namespace Toppings
             response.Toppings.AddRange(availableToppings);
             return response;
         }
+
+        public override async Task<DecrementStockResponse> DecrementStock(DecrementStockRequest request, ServerCallContext context)
+        {
+            var tasks = request.ToppingIds.Select(id => _data.DecrementStockAsync(id));
+
+            try
+            {
+                await Task.WhenAll(tasks);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, ex.Message);
+                throw new RpcException(new Status(StatusCode.Internal, ex.Message));
+            }
+            
+            return new DecrementStockResponse();
+        }
     }
 }
