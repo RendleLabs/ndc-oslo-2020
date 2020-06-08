@@ -8,6 +8,7 @@ package orders;
 
 service Orders {
   rpc PlaceOrder (PlaceOrderRequest) returns (PlaceOrderResponse);
+  rpc Subscribe (SubscribeRequest) returns (stream SubscribeResponse);
 }
 
 message PlaceOrderRequest {
@@ -16,5 +17,14 @@ message PlaceOrderRequest {
 
 message PlaceOrderResponse {
   google.protobuf.Timestamp time = 1;  
+}
+
+message SubscribeRequest {
+  
+}
+
+message SubscribeResponse {
+  repeated string topping_ids = 1;
+  google.protobuf.Timestamp time = 2;
 }
 
