@@ -13,7 +13,8 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Protobuf Include="Protos\toppings.proto" GrpcServices="Client" />
+    <Protobuf Include="Protos\decimal.proto" GrpcServices="None"/>
+    <Protobuf Include="Protos\toppings.proto" GrpcServices="Client" ProtoRoot="Protos" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Google.Protobuf" Version="3.12.3" />

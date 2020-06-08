@@ -28,7 +28,7 @@ namespace Toppings
                 {
                     Id = t.Id,
                     Name = t.Name,
-                    Price = (float) t.Price
+                    Price = t.Price
                 },
                 Quantity = t.StockCount
             });

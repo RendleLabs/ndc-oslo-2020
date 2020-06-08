@@ -1,5 +1,7 @@
 syntax = "proto3";
 
+import "decimal.proto";
+
 option csharp_namespace = "Toppings";
 
 package toppings;
@@ -25,5 +27,5 @@ message AvailableTopping {
 message Topping {
   string id = 1;
   string name = 2;
-  float price = 3;
+  customTypes.DecimalValue price = 3;
 }
