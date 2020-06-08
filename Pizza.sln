@@ -18,6 +18,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "files", "files", "{2E1F0229-94D0-434C-ACC6-3DB6F47AA8A0}"
 	ProjectSection(SolutionItems) = preProject
 		README.md = README.md
+		tye.yaml = tye.yaml
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Toppings", "src\Toppings\Toppings.csproj", "{3AD66A34-87AC-4850-B5A7-85EF374D8BF9}"
