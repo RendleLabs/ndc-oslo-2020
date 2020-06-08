@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk.Worker">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>dotnet-ShopConsole-5586294A-5D8F-49A9-8352-777C1D67872D</UserSecretsId>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Google.Protobuf" Version="3.12.3" />
+    <PackageReference Include="Grpc.Net.ClientFactory" Version="2.29.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.29.0" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="3.1.4" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Protos" />
+  </ItemGroup>
+  <ItemGroup>
+    <Protobuf Include="Protos\orders.proto" GrpcServices="Client" />
+  </ItemGroup>
+</Project>
