@@ -1,11 +1,12 @@
 syntax = "proto3";
 
-option csharp_namespace = "Frontend";
+option csharp_namespace = "Toppings.Tests";
 
 package toppings;
 
 service Toppings {
   rpc GetAvailable (AvailableRequest) returns (AvailableResponse);
+  
 }
 
 message AvailableRequest {

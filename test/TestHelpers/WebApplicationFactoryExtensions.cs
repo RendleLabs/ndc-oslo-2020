@@ -12,6 +12,7 @@ namespace TestHelpers
         public static GrpcChannel CreateGrpcChannel<T>(this WebApplicationFactory<T> factory) where T : class
         {
             var client = factory.CreateDefaultClient(new ResponseVersionHandler());
+            
             return GrpcChannel.ForAddress(client.BaseAddress, new GrpcChannelOptions
             {
                 HttpClient = client
