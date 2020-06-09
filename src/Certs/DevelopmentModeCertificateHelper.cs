@@ -37,7 +37,8 @@ namespace Certs
             var clientCert = ClientCert.Get();
             var handler = new HttpClientHandler();
             handler.ClientCertificates.Add(clientCert);
-            handler.ServerCertificateCustomValidationCallback = (message, serverCert, arg3, arg4) => serverCert.Issuer == clientCert.Issuer;
+            handler.ServerCertificateCustomValidationCallback = (message, serverCert, arg3, arg4) =>
+                serverCert.Issuer == clientCert.Issuer;
             return handler;
         }
     }

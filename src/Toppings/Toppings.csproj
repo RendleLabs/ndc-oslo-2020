@@ -15,6 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Certs\Certs.csproj" />
     <ProjectReference Include="..\Toppings.Data\Toppings.Data.csproj" />
   </ItemGroup>
 

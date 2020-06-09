@@ -19,6 +19,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Certs\Certs.csproj" />
     <ProjectReference Include="..\Orders.PubSub\Orders.PubSub.csproj" />
   </ItemGroup>
 

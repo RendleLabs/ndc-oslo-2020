@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Grpc.Core;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using Toppings.Data;
 
 namespace Toppings
 {
+    [Authorize]
     public class ToppingsService : Toppings.ToppingsBase
     {
         private readonly IToppingData _data;

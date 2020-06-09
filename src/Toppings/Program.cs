@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using Certs;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Server.Kestrel.Https;
 using Microsoft.Extensions.Hosting;
 
 namespace Toppings
@@ -21,7 +23,19 @@ namespace Toppings
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
-                    webBuilder.UseStartup<Startup>();
+                    webBuilder.UseStartup<Startup>()
+                        .ConfigureKestrel(options =>
+                        {
+                            options.ConfigureHttpsDefaults(defaults =>
+                            {
+                                var serverCertificate = ServerCert.Get();
+                                defaults.ServerCertificate = serverCertificate;
+                                defaults.ClientCertificateMode = ClientCertificateMode.RequireCertificate;
+                                defaults.ClientCertificateValidation = (clientCertificate, chain, arg3) =>
+                                    clientCertificate.Issuer == serverCertificate.Issuer;
+                            });
+                        });
+                    
                 });
     }
 }
