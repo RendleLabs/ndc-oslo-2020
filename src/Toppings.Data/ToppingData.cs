@@ -81,5 +81,10 @@ namespace Toppings.Data
                 }
             }
         }
+
+        public async Task<bool> PingAsync(CancellationToken token)
+        {
+            return await _table.ExistsAsync(token);
+        }
     }
 }

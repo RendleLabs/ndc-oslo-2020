@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Protobuf Include="Protos\health.proto" GrpcServices="Server" />
     <Protobuf Include="Protos\toppings.proto" GrpcServices="Server" ProtoRoot="Protos" />
     <Protobuf Include="Protos\decimal.proto" GrpcServices="None" />
   </ItemGroup>

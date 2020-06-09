@@ -7,7 +7,7 @@ spec:
   selector:
     matchLabels:
       run: toppings
-  replicas: 1
+  replicas: 2
   template:
     metadata:
       labels:
@@ -28,6 +28,8 @@ spec:
           value: "true"
         - name: ASPNETCORE_URLS
           value: "http://0.0.0.0:80"
+        - name: Logging__LogLevel__Microsoft
+          value: "Information"
 
 ---
 

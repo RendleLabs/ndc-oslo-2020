@@ -8,5 +8,6 @@ namespace Toppings.Data
     {
         Task<List<ToppingEntity>> GetAsync(CancellationToken token = default);
         Task DecrementStockAsync(string id, CancellationToken token = default);
+        Task<bool> PingAsync(CancellationToken token);
     }
 }
