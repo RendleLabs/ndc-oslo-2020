@@ -16,7 +16,7 @@ namespace Orders
 
             var claims = new[] {new Claim(ClaimTypes.Name, name)};
             var credentials = new SigningCredentials(SecurityKey, SecurityAlgorithms.HmacSha256);
-            var token = new JwtSecurityToken("ExampleServer", "ExampleClients", claims, expires: DateTime.Now.AddSeconds(60), signingCredentials: credentials);
+            var token = new JwtSecurityToken("ExampleServer", "ExampleClients", claims, expires: DateTime.Now.AddMinutes(60), signingCredentials: credentials);
             return JwtTokenHandler.WriteToken(token);
         }
 

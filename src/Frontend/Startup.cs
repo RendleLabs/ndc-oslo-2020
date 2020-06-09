@@ -4,6 +4,8 @@ using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Certs;
+using Frontend.Controllers;
+using Grpc.Core;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -42,13 +44,23 @@ namespace Frontend
                     channel.DisposeHttpClient = true;
                 }));
 
+            services.AddSingleton<IAuthHelper, AuthHelper>();
 
             services.AddGrpcClient<Orders.OrdersClient>((provider, options) =>
-            {
-                var config = provider.GetService<IConfiguration>();
-                var uri = config.GetServiceUri("Orders");
-                options.Address = uri;
-            });
+                {
+                    var config = provider.GetService<IConfiguration>();
+                    var uri = config.GetServiceUri("Orders");
+                    options.Address = uri;
+                })
+                .ConfigureChannel((provider, channel) =>
+                {
+                    var authHelper = provider.GetRequiredService<IAuthHelper>();
+                    var credentials = CallCredentials.FromInterceptor(async (context, metadata) =>
+                    {
+                        metadata.Add("Authorization", $"Bearer {await authHelper.GetTokenAsync()}");
+                    });
+                    channel.Credentials = ChannelCredentials.Create(new SslCredentials(), credentials);
+                });
             services.AddControllersWithViews();
         }
 

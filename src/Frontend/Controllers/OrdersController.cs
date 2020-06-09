@@ -1,6 +1,7 @@
 using System.Linq;
 using System.Threading.Tasks;
 using Frontend.Models;
+using Grpc.Core;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -10,11 +11,13 @@ namespace Frontend.Controllers
     public class OrdersController : Controller
     {
         private readonly Orders.OrdersClient _ordersClient;
+        private readonly IAuthHelper _authHelper;
         private readonly ILogger<OrdersController> _log;
 
-        public OrdersController(Orders.OrdersClient ordersClient, ILogger<OrdersController> log)
+        public OrdersController(Orders.OrdersClient ordersClient, IAuthHelper authHelper, ILogger<OrdersController> log)
         {
             _ordersClient = ordersClient;
+            _authHelper = authHelper;
             _log = log;
         }
 
@@ -28,6 +31,10 @@ namespace Frontend.Controllers
             var request = new PlaceOrderRequest();
             request.ToppingIds.AddRange(toppingIds);
 
+            // var token = await _authHelper.GetTokenAsync();
+            // var metadata = new Metadata {{"Authorization", $"Bearer {token}"}};
+            // var response = await _ordersClient.PlaceOrderAsync(request, metadata);
+            
             var response = await _ordersClient.PlaceOrderAsync(request);
             
             return View();
