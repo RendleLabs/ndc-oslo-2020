@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using JaegerTracing;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -19,6 +20,7 @@ namespace Toppings
         {
             services.AddSingleton<IToppingData, ToppingData>();
             services.AddGrpc();
+            services.AddJaegerTracing();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

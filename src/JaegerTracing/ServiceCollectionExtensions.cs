@@ -10,6 +10,7 @@ namespace JaegerTracing
         public static IServiceCollection AddJaegerTracing(this IServiceCollection services)
         {
             var jaeger = Environment.GetEnvironmentVariable("JAEGER_SERVICE_NAME");
+            
             if (!string.IsNullOrEmpty(jaeger))
             {
                 services.AddOpenTracing();

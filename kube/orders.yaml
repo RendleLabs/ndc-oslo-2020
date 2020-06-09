@@ -34,6 +34,16 @@ spec:
           value: "80"
         - name: Service__Toppings__Protocol
           value: "http"
+        - name: JAEGER_SERVICE_NAME
+          value: "orders"
+        - name: JAEGER_AGENT_HOST
+          value: "jaeger-agent"
+        - name: JAEGER_AGENT_PORT
+          value: "6831"
+        - name: JAEGER_SAMPLER_TYPE
+          value: "const"
+        - name: JAEGER_SAMPLER_MANAGER_HOST_PORT
+          value: "jaeger-agent:5778"
 
 ---
 

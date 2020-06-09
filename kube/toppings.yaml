@@ -30,6 +30,16 @@ spec:
           value: "http://0.0.0.0:80"
         - name: Logging__LogLevel__Microsoft
           value: "Information"
+        - name: JAEGER_SERVICE_NAME
+          value: "toppings"
+        - name: JAEGER_AGENT_HOST
+          value: "jaeger-agent"
+        - name: JAEGER_AGENT_PORT
+          value: "6831"
+        - name: JAEGER_SAMPLER_TYPE
+          value: "const"
+        - name: JAEGER_SAMPLER_MANAGER_HOST_PORT
+          value: "jaeger-agent:5778"
 
 ---
 
