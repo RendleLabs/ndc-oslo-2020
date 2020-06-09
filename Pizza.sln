@@ -29,6 +29,23 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Orders", "src\Orders\Orders
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ShopConsole", "src\ShopConsole\ShopConsole.csproj", "{7ADFA92E-320D-41D0-BFE0-3E3A488918A2}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docker", "docker", "{17FF3F2B-00A4-4937-AB2A-31B54E63754D}"
+ProjectSection(SolutionItems) = preProject
+	Frontend.Dockerfile = Frontend.Dockerfile
+	Orders.Dockerfile = Orders.Dockerfile
+	Toppings.Dockerfile = Toppings.Dockerfile
+	.dockerignore = .dockerignore
+EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "kube", "kube", "{2C8340C2-2A98-488F-A984-70ADAE69CA01}"
+ProjectSection(SolutionItems) = preProject
+	kube\frontend.yaml = kube\frontend.yaml
+	kube\jaeger.yaml = kube\jaeger.yaml
+	kube\namespace.yaml = kube\namespace.yaml
+	kube\orders.yaml = kube\orders.yaml
+	kube\toppings.yaml = kube\toppings.yaml
+EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

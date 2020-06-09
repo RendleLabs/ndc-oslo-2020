@@ -23,6 +23,11 @@ spec:
             memory: 100Mi
         ports:
         - containerPort: 80
+        env:
+        - name: DOTNET_SYSTEM_NET_HTTP_SOCKETSHTTPHANDLER_HTTP2UNENCRYPTEDSUPPORT
+          value: "true"
+        - name: ASPNETCORE_URLS
+          value: "http://0.0.0.0:80"
 
 ---
 

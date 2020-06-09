@@ -23,6 +23,23 @@ spec:
             memory: 100Mi
         ports:
         - containerPort: 80
+        env:
+        - name: Service__Toppings__Host
+          value: "toppings"
+        - name: Service__Toppings__Port
+          value: "80"
+        - name: Service__Toppings__Protocol
+          value: "http"
+        - name: Service__Orders__Host
+          value: "orders"
+        - name: Service__Orders__Port
+          value: "80"
+        - name: Service__Orders__Protocol
+          value: "http"
+        - name: DOTNET_SYSTEM_NET_HTTP_SOCKETSHTTPHANDLER_HTTP2UNENCRYPTEDSUPPORT
+          value: "true"
+        - name: ASPNETCORE_URLS
+          value: "http://0.0.0.0:80"
 
 ---
 
